@@ -93,7 +93,6 @@ export default class DB {
         if (id < 0 || id !== parseInt(id)) {
             throw new Error('id must be an integer, equal or greater then zero.');
         } else if (typeof title != 'string' || title.length < 3) {
-            console.log(typeof title);
             throw new Error('title must contain at least 3 letters.');
         }
 
@@ -138,9 +137,8 @@ export default class DB {
         } else {
             for (let i = 0; i < data.length; i++) {
                 if (data[i].id === id) {
-                    data.title = title;
-                    data.completed = completed;
-
+                    data[i].title = title;
+                    data[i].completed = completed;
                     const str = JSON.stringify(data, null, 4);
                     try {
                         fs.writeFileSync(fileName, str, 'utf-8');

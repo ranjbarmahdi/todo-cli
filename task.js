@@ -1,8 +1,8 @@
-import util from 'util';
+import util from "util";
 
-import chalk from 'chalk';
+import chalk from "chalk";
 
-import DB from './db.js';
+import DB from "./db.js";
 
 export default class Task {
     #id = 0;
@@ -22,8 +22,8 @@ export default class Task {
     }
 
     set title(value) {
-        if (typeof value !== 'string' || value.length < 3) {
-            throw new Error('title must contain at least 3 letters');
+        if (typeof value !== "string" || value.length < 3) {
+            throw new Error("title must contain at least 3 letters");
         }
         this.#title = value;
     }
